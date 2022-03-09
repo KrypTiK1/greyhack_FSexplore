@@ -1,0 +1,25 @@
+while true
+path = user_input("FSbrowser=:> ")
+//========================================
+file = get_shell.host_computer.File(path)
+if file != null then
+   print("<color=purple><u><b>" + file.get_content)
+end if
+//========================================
+parent = get_shell.host_computer.File(path)
+if parent.is_folder then
+   files = parent.get_files
+   for file in files
+       print("<color=#008000><u><b>" + file.name + "</u></b></color>" + " | size: | " + "<color=#fe4eda><u><b>" + file.size + "</u></b></color>" + " | group: | " + "<color=#e62020><u><b>" + file.group + "</u></b></color>")
+   end for
+end if
+//========================================
+parent = get_shell.host_computer.File(path)
+if parent.is_folder then
+   folders = parent.get_folders
+   for folder in folders
+       print("<color=#00ffff><u><b>" + folder.name + "</u></b></color>" + " | size: | " + "<color=#00ff00><u><b>" + folder.size + "</u></b></color>" + " | group: | " + "<color=#ffcc00><u><b>" + folder.group + "</u></b></color>")
+   end for
+end if
+//========================================
+end while
